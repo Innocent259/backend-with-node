@@ -17,6 +17,14 @@ app.get("/json", function(req, res) {
     res.json({message})
 })
 
+// Middleware functions
+
+app.use((req, res, next) => {
+  const logString = `${req.method} ${req.path} - ${req.ip}`;
+  console.log(logString);
+  next();
+});
+
 
 
 
